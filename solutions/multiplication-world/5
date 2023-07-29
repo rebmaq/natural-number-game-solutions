@@ -1,0 +1,15 @@
+/-mul_assoc-/
+/-lemma mul_assoc (a b c : mynat) : (a * b) * c = a * (b * c) :=-/
+
+induction c with k h,
+rw mul_zero (a * b),
+rw mul_zero b,
+rw mul_zero a,
+refl,
+
+rw mul_succ (a * b) k,
+rw mul_succ b k,
+rw h,
+-- ← obtained by writing \l
+rw ← mul_add a (b * k) b, -- reverts mul_add
+refl,

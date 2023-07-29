@@ -1,0 +1,20 @@
+/-succ_mul-/
+/-lemma succ_mul (a b : mynat) : succ a * b = a * b + b :=-/
+
+induction b with k h,
+rw mul_zero (succ a),
+rw mul_zero a,
+rw add_zero 0,
+refl, 
+
+rw mul_succ a k,
+rw succ_eq_add_one k,
+rw mul_add (succ a) k 1,
+rw mul_one (succ a),
+rw add_right_comm (a * k) a (k + 1),
+rw ← add_assoc (a * k) k 1,
+rw ← h,
+rw add_assoc ((succ a) * k) 1 a,
+rw add_comm 1 a,
+rw ← succ_eq_add_one a,
+refl,
