@@ -1,0 +1,11 @@
+/-zero_mul-/
+/-lemma zero_mul (m : mynat) : 0 * m = 0 :=-/
+
+induction m with k h,
+rw mul_zero,
+refl,
+
+rw mul_succ 0 k,
+rw add_zero (0 * k),
+rw h,
+refl,

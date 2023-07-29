@@ -1,0 +1,8 @@
+/-mul_one-/
+/-lemma mul_one (m : mynat) : m * 1 = m :=-/
+
+rw one_eq_succ_zero,
+rw mul_succ,
+rw mul_zero m,
+rw zero_add m,
+refl,

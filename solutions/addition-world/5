@@ -1,0 +1,16 @@
+/-succ_eq_add_one-/
+/-theorem succ_eq_add_one (n : mynat) : succ n = n + 1 :=-/
+
+induction n with k h,
+rw one_eq_succ_zero,
+rw zero_add (succ 0),
+refl,
+
+rw h,
+rw one_eq_succ_zero,
+rw add_succ k 0,
+rw add_succ (succ (k + 0)) 0,
+rw succ_add (k + 0) 0,
+rw add_zero k,
+rw add_zero k,
+refl,

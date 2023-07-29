@@ -1,0 +1,12 @@
+/-succ_add-/
+/-lemma succ_add (a b : mynat) : succ a + b = succ (a + b) :=-/
+
+induction b with k h,
+rw add_zero a,
+rw add_zero (succ a),
+refl,
+
+rw add_succ (succ a) k,
+rw h,
+rw add_succ a k,
+refl,

@@ -1,0 +1,13 @@
+/-add_right_comm-/
+/-lemma add_right_comm (a b c : mynat) : a + b + c = a + c + b :=-/
+
+induction c with k h,
+rw add_zero (a + b),
+rw add_zero a,
+refl,
+
+rw add_succ (a + b) k,
+rw add_succ a k,
+rw succ_add (a + k) b,
+rw h,
+refl,

@@ -1,0 +1,25 @@
+/-one_mul-/
+/-lemma one_mul (m : mynat) : 1 * m = m :=-/
+
+induction m with k h,
+rw mul_zero 1,
+refl,
+
+rw one_eq_succ_zero,
+rw mul_succ (succ 0) k,
+rw add_succ ((succ 0)*k) 0,
+-- ← obtained by writing \l
+rw ← one_eq_succ_zero, -- reverts one_eq_succ_zero
+rw add_zero,
+rw h,
+refl,
+
+-- more succinct proof
+induction m with k h,
+rw mul_zero 1,
+refl,
+
+rw mul_succ 1 k,
+rw h,
+rw succ_eq_add_one,
+refl,

@@ -1,0 +1,1 @@
+These are my solutions to The Natural Number Game by Kevin Buzzard and Mohammad Pedramfar. Assume all number variables to be natural unless specified otherwise.
