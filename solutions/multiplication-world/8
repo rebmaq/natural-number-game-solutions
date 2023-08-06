@@ -1,0 +1,12 @@
+/-mul_comm-/
+/-lemma mul_comm (a b : mynat) : a * b = b * a :=-/
+
+induction b with k h,
+rw mul_zero a,
+rw zero_mul a,
+refl,
+
+rw mul_succ,
+rw succ_mul,
+rw h,
+refl,

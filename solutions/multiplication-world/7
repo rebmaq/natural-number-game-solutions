@@ -1,0 +1,20 @@
+/-add_mul-/
+/-lemma add_mul (a b t : mynat) : (a + b) * t = a * t + b * t :=-/
+
+induction t with k h,
+rw mul_zero (a + b), rw mul_zero a, rw mul_zero b,
+rw add_zero 0,
+refl,
+
+rw mul_succ (a + b) k,
+rw mul_succ a k,
+rw mul_succ b k,
+rw h,
+
+--simp--
+rw add_assoc (a * k) a (b * k + b),
+rw add_comm a (b * k + b),
+rw add_assoc (b * k) b a,
+rw ← add_assoc (a * k) (b * k) (b + a),
+rw add_comm b a,
+refl,

@@ -1,0 +1,14 @@
+/-mul_left_comm-/
+/-lemma mul_left_comm (a b c : mynat) : a * (b * c) = b * (a * c) :=-/
+
+induction a with k h,
+rw zero_mul (b * c),
+rw zero_mul c,
+rw mul_zero b,
+refl,
+
+rw succ_mul k (b * c),
+rw succ_mul k c,
+rw mul_add b (k * c) c,
+rw h,
+refl,
