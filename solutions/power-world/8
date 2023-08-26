@@ -1,0 +1,25 @@
+/-add_squared-/
+/-lemma add_squared (a b : mynat) : (a + b) ^ (2 : mynat) = a ^ (2 : mynat) + b ^ (2 : mynat) + 2 * a * b :=-/
+
+rw two_eq_succ_one,
+rw one_eq_succ_zero,
+repeat {rw pow_succ},
+repeat {rw pow_zero},
+repeat {rw one_mul},
+
+rw add_mul a b (a + b),
+rw mul_add a a b,
+rw mul_add b a b,
+rw add_assoc (a * a) (a * b) (b * a + b * b),
+rw ← add_assoc (a * b) (b * a) (b * b),
+rw mul_comm b a,
+rw add_comm (a * b + a * b) (b * b),
+rw ← add_assoc (a * a) (b * b) (a * b + a * b),
+rw ← one_mul (a * b),
+
+rw ← add_mul 1 1 (a * b),
+rw one_eq_succ_zero,
+rw add_succ (succ 0),
+rw add_zero (succ 0),
+rw mul_assoc (succ (succ 0)) a b,
+refl,

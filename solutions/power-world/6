@@ -1,0 +1,20 @@
+/-mul_pow-/
+/-lemma mul_pow (a b n : mynat) : (a * b) ^ n = a ^ n * b ^ n :=-/
+
+induction n with k h,
+rw pow_zero (a * b),
+rw pow_zero a,
+rw pow_zero b,
+rw mul_one 1,
+refl,
+
+rw pow_succ a,
+rw pow_succ b,
+rw pow_succ (a * b),
+rw h,
+rw mul_assoc (a ^ k) a (b ^ k * b),
+rw mul_comm (b ^ k) b,
+rw ← mul_assoc a b (b ^ k),
+rw mul_comm (a * b) (b ^ k),
+rw ← mul_assoc (a ^ k) (b ^ k) (a * b),
+refl,

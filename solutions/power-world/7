@@ -1,0 +1,16 @@
+/-pow_pow-/
+/-lemma pow_pow (a m n : mynat) : (a ^ m) ^ n = a ^ (m * n) :=-/
+
+induction n with k h,
+rw pow_zero (a ^ m),
+rw mul_zero m,
+rw pow_zero a,
+refl,
+
+rw pow_succ (a ^ m),
+rw h,
+rw ← pow_add a (m * k) m,
+rw mul_comm m k,
+rw ← succ_mul k m,
+rw mul_comm (succ k) m,
+refl,

@@ -1,0 +1,8 @@
+/-pow_one-/
+/-lemma pow_one (a : mynat) : a ^ (1 : mynat) = a :=-/
+
+rw one_eq_succ_zero,
+rw pow_succ a 0,
+rw pow_zero a,
+rw one_mul a,
+refl,
